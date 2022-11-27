@@ -7,7 +7,8 @@ const TerrenoSchema = {
     id: {
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUID
+        autoIncrement: true,
+        type: DataTypes.INTEGER
     },
     area: {
         allowNull: false,
@@ -29,7 +30,7 @@ const TerrenoSchema = {
         allowNull: false,
         field: 'id_predio',
         unique: true,
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         references: {
             model: PREDIO_TABLE,
             key: 'id'
