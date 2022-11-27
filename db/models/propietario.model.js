@@ -8,7 +8,8 @@ const PropietarioSchema = {
     id: {
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUID
+        autoIncrement: true,
+        type: DataTypes.INTEGER
     },
     tipoPersona: {
         allowNull: false,
@@ -60,7 +61,7 @@ const PropietarioSchema = {
     idPredio: {
         allowNull: false,
         field: 'id_predio',
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         references: {
             model: PREDIO_TABLE,
             key: 'id'

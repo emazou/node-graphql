@@ -6,7 +6,8 @@ const PredioSchema = {
     id: {
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUID
+        autoIncrement: true,
+        type: DataTypes.INTEGER
     },
     noPredial: {
         allowNull: false,
@@ -26,6 +27,13 @@ const PredioSchema = {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    avaluo: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        validate: {
+            min: 1
+        }
+    },
 }
 
 
@@ -36,11 +44,11 @@ class Predio extends Model {
             as: 'terreno',
             foreignKey: 'idPredio'
         })
-        this.hasMany(models.Product, {
+        this.hasMany(models.Propietario, {
             as: 'propietario',
             foreignKey: 'idPredio'
         });
-        this.hasMany(models.Product, {
+        this.hasMany(models.Construccion, {
             as: 'construccion',
             foreignKey: 'idPredio'
         });
